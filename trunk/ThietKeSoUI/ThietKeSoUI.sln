@@ -5,7 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThietKeSoUI", "ThietKeSoUI\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThietKeSo", "ThietKeSO\ThietKeSo.csproj", "{23023FD3-9353-4854-A0F8-7FDE1E55037F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailSender", "MailSender\MailSender.csproj", "{6BEA6DBC-78A3-4823-A521-377CEC8E0A6D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "MailSender\Common.csproj", "{6BEA6DBC-78A3-4823-A521-377CEC8E0A6D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
