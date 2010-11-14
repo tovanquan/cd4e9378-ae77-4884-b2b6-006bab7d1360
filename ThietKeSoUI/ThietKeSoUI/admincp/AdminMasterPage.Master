@@ -25,8 +25,8 @@
         
         <!-- You can name the links with lowercase, they will be transformed to uppercase by CSS, we prefered to name them with uppercase to have the same effect with disabled stylesheet -->
         <ul id="mainNav">
-        	<li><a href="#" class="active">ADMIN CONTROL PANEL</a></li> <!-- Use the "active" class for the active menu item  -->
-        	<li><a href="#">HOME PAGE</a></li>
+        	<li><a href="Default.aspx" class="active">ADMIN CONTROL PANEL</a></li> <!-- Use the "active" class for the active menu item  -->
+        	<li><a href="../Default.aspx">MAIN PAGE</a></li>
         	<li class="logout"><a href="#">LOGOUT</a></li>
         </ul>
         <!-- // #end mainNav -->
@@ -52,6 +52,9 @@
         <p id="footer">Hệ Thống Quản Trị Website ThietKeSo. Design by <a href="http://www.thietkeso.net">ThietKeSo.Net</a></p>
     </div>
     <!-- // #wrapper -->
+    <asp:ContentPlaceHolder ID="cphActiveMenuJs" runat="server">
+        <!-- This Place Holder for Bulding JS Function active Menu-->
+    </asp:ContentPlaceHolder>
     </form>
 </body>
 </html>
