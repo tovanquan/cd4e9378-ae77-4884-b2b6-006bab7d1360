@@ -99,13 +99,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="admincp\addNewArticle.aspx.cs">
-      <DependentUpon>addNewArticle.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admincp\addNewArticle.aspx.designer.cs">
-      <DependentUpon>addNewArticle.aspx</DependentUpon>
-    </Compile>
     <Compile Include="admincp\AdminMasterPage.Master.cs">
       <DependentUpon>AdminMasterPage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -218,10 +211,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MailSender\MailSender.csproj">
-      <Project>{6BEA6DBC-78A3-4823-A521-377CEC8E0A6D}</Project>
-      <Name>MailSender</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ThietKeSO\ThietKeSo.csproj">
       <Project>{23023FD3-9353-4854-A0F8-7FDE1E55037F}</Project>
       <Name>ThietKeSo</Name>
@@ -239,7 +228,6 @@
     <Content Include="UserControls\MainMenu.ascx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="admincp\addNewArticle.aspx" />
     <Content Include="admincp\AdminMasterPage.Master" />
     <Content Include="admincp\ArticleCtrl.aspx" />
     <Content Include="admincp\Default.aspx" />
