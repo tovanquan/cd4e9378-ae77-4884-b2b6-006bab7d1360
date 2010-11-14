@@ -9,18 +9,13 @@
     	    <table cellpadding="0" cellspacing="0" border=1>
 			    <tr style="background-color:black">
                     <td><b>HỌ VÀ TÊN</b></td>
+                    <td><b>YAHOO</b></td>
+                    <td><b>MOBILE</b></td>
                     <td class="action" colspan=3>
                         <b>CHỈNH SỬA</b>
                     </td>
                 </tr>  
-                <asp:Label ID="lb
-                <tr class="odd">
-                    <td>Nguyen Xuan Hieu</td>
-                    <td class="action">
-                        <a href="#" class="edit">Edit</a>
-                        <a href="#" class="delete">Delete</a>
-                    </td>
-                </tr>                                    
+                <asp:Label ID="lbTableSupporter" runat="server"></asp:Label>                                   
             </table>
 					        <h3>Another section</h3>
                     	    <fieldset>
