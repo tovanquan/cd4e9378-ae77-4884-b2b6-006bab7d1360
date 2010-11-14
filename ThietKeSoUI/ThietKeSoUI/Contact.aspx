@@ -11,6 +11,7 @@
     <p class="contact">
         Xin hãy nhập thông tin của bạn vào form lên hệ bên dưới
     </p>
+    
     <table border="0">
         <tbody valign="top">
         <tr>
@@ -39,14 +40,19 @@
             <td><asp:TextBox ID="tbContent" TextMode="MultiLine" Width="400px" Height="100px" runat="server" ></asp:TextBox></td>
         </tr>
         <tr>
-            <td></td><td> <asp:Button ID="btnSend" runat="server" Text="Gửi" /></td>
+            <td></td>
+            <td><asp:Label ID = "lbError" runat="server" Text="" style="color:Red" Visible ="false" ></asp:Label></td>
+        </tr>
+        <tr>
+            <td></td><td> <asp:Button ID="btnSend" runat="server" Text="Gửi" 
+                onclick="btnSend_Click" /></td>
         </tr>
         </tbody>
     </table>
     
     <p class="contact">
         Hoặc liên hệ trực tiếp:
-    </p>
+    
     
     <div class="bottomlienhe">
         <p class="text2lienhe">
