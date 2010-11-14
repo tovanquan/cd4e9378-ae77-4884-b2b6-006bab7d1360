@@ -30,16 +30,16 @@ namespace ThietKeSoUI
                 result = ValidateInputData();
                 if (result)
                 {
-                   //// CustomerInformation customerInfo = new CustomerInformation();
-                   // customerInfo.Address = tbAddress.Text.Trim();
-                   // customerInfo.Content = tbContent.Text.Trim();
-                   // customerInfo.Email = tbEmail.Text.Trim();
-                   // customerInfo.Title = tbTitle.Text.Trim();
-                   // customerInfo.Name = tbName.Text.Trim();
-                   // customerInfo.Mobile = tbTel.Text.Trim();
-                   // //Utility.SendEmail("lienhe.thietkeso@gmail.com", tbTitle.Text.Trim(), tbContent.Text.Trim(), true);
-                   // Utility.SendEmail("lienhe.thietkeso@gmail.com",customerInfo,true);
-                   // //Gui mail lai cho khach hang
+                    CustomerInformation customerInfo = new CustomerInformation();
+                    customerInfo.Address = tbAddress.Text.Trim();
+                    customerInfo.Content = tbContent.Text.Trim();
+                    customerInfo.Email = tbEmail.Text.Trim();
+                    customerInfo.Title = tbTitle.Text.Trim();
+                    customerInfo.Name = tbName.Text.Trim();
+                    customerInfo.Mobile = tbTel.Text.Trim();
+                    //Utility.SendEmail("lienhe.thietkeso@gmail.com", tbTitle.Text.Trim(), tbContent.Text.Trim(), true);
+                    Utility.SendEmail("lienhe.thietkeso@gmail.com", customerInfo, true);
+                    //Gui mail lai cho khach hang
                 }
             }
             catch (DataException ex) 
@@ -57,8 +57,8 @@ namespace ThietKeSoUI
                     throw new DataException("ten deo duoc de trong");
                 if (string.IsNullOrEmpty(tbEmail.Text.Trim()))
                     throw new DataException("Email deo duoc de trong");
-                //if (!Utility.CheckInputEmail(tbEmail.Text.Trim()))
-                //    throw new DataException("Nhap sai me dinh dang email roi");
+                if (!Utility.CheckInputEmail(tbEmail.Text.Trim()))
+                    throw new DataException("Nhap sai me dinh dang email roi");
                 if (string.IsNullOrEmpty(tbTitle.Text.Trim()))
                     throw new DataException("Title deo duoc de trong");
                 if (string.IsNullOrEmpty(tbContent.Text.Trim()))
