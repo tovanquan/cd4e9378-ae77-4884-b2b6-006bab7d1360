@@ -12,3 +12,12 @@ C:\Users\RedDevils\Desktop\TKS_V3\ThietKeSoUI\ThietKeSoUI\bin\ThietKeSO.pdb
 C:\Users\RedDevils\Desktop\TKS_V3\ThietKeSoUI\ThietKeSoUI\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\RedDevils\Desktop\TKS_V3\ThietKeSoUI\ThietKeSoUI\obj\Debug\ThietKeSoUI.dll
 C:\Users\RedDevils\Desktop\TKS_V3\ThietKeSoUI\ThietKeSoUI\obj\Debug\ThietKeSoUI.pdb
+D:\SAVE\ProjectC#.NET\PetStory\ThietKeSoUI\ThietKeSoUI\bin\ThietKeSoUI.dll
+D:\SAVE\ProjectC#.NET\PetStory\ThietKeSoUI\ThietKeSoUI\bin\ThietKeSoUI.pdb
+D:\SAVE\ProjectC#.NET\PetStory\ThietKeSoUI\ThietKeSoUI\bin\ThietKeSO.dll
+D:\SAVE\ProjectC#.NET\PetStory\ThietKeSoUI\ThietKeSoUI\bin\ThietKeSO.pdb
+D:\SAVE\ProjectC#.NET\PetStory\ThietKeSoUI\ThietKeSoUI\obj\Debug\ResolveAssemblyReference.cache
+D:\SAVE\ProjectC#.NET\PetStory\ThietKeSoUI\ThietKeSoUI\obj\Debug\ThietKeSoUI.dll
+D:\SAVE\ProjectC#.NET\PetStory\ThietKeSoUI\ThietKeSoUI\obj\Debug\ThietKeSoUI.pdb
+D:\SAVE\ProjectC#.NET\PetStory\ThietKeSoUI\ThietKeSoUI\bin\MailSender.dll
+D:\SAVE\ProjectC#.NET\PetStory\ThietKeSoUI\ThietKeSoUI\bin\MailSender.pdb

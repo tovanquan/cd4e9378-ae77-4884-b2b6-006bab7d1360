@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MailSender, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MailSender\bin\Debug\MailSender.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core">
@@ -213,7 +217,6 @@
     <Content Include="admincp\Default.aspx" />
     <Content Include="admincp\images\login-bg.png" />
     <Content Include="admincp\Login.aspx" />
-    <Content Include="admincp\style\css\hack.css" />
     <Content Include="admincp\style\css\ie6.css" />
     <Content Include="admincp\style\css\ie7.css" />
     <Content Include="admincp\style\css\jNice.css" />

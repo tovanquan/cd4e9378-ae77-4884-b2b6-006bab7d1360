@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="cphMainContent" runat="server">
  <h2><a href="#">Dashboard</a> &raquo; <a href="#" class="active">Print resources</a></h2>
         <br />
-        <div style="height:500px; padding:10px 10px 10px 10px;" >
+        <div style="height:10px; padding:10px 10px 10px 10px;" >
         <br /><br />
         Xin Chào. Đây là hệ thống quản trị website ThietKeSo.
         </div>
