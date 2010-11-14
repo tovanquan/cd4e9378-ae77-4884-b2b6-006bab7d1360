@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{23023FD3-9353-4854-A0F8-7FDE1E55037F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ThietKeSO</RootNamespace>
+    <AssemblyName>ThietKeSO</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Biz\Implements\ArticlesService.cs" />
+    <Compile Include="Biz\Implements\CategoriesService.cs" />
+    <Compile Include="Biz\Implements\CustomersService.cs" />
+    <Compile Include="Biz\Implements\DomainsService.cs" />
+    <Compile Include="Biz\Implements\HostingsService.cs" />
+    <Compile Include="Biz\Implements\PartnersService.cs" />
+    <Compile Include="Biz\Implements\SupporterService.cs" />
+    <Compile Include="Biz\Implements\TempCategoriesService.cs" />
+    <Compile Include="Biz\Implements\TemplatesService.cs" />
+    <Compile Include="Biz\Implements\UsersService.cs" />
+    <Compile Include="Biz\Implements\VisitService.cs" />
+    <Compile Include="Biz\Implements\WebsitesService.cs" />
+    <Compile Include="Biz\Services\IArticlesService.cs" />
+    <Compile Include="Biz\Services\ICategoriesService.cs" />
+    <Compile Include="Biz\Services\ICustomersService.cs" />
+    <Compile Include="Biz\Services\IDomainsService.cs" />
+    <Compile Include="Biz\Services\IHostingsService.cs" />
+    <Compile Include="Biz\Services\IPartnersService.cs" />
+    <Compile Include="Biz\Services\ISupporterService.cs" />
+    <Compile Include="Biz\Services\ITempCategoriesService.cs" />
+    <Compile Include="Biz\Services\ITemplatesService.cs" />
+    <Compile Include="Biz\Services\IUsersService.cs" />
+    <Compile Include="Biz\Services\IVisitService.cs" />
+    <Compile Include="Biz\Services\IWebsitesService.cs" />
+    <Compile Include="Common\Models\ArticlesInfo.cs" />
+    <Compile Include="Common\Models\Base\ArticlesInfoBase.cs" />
+    <Compile Include="Common\Models\Base\CategoriesInfoBase.cs" />
+    <Compile Include="Common\Models\Base\CustomersInfoBase.cs" />
+    <Compile Include="Common\Models\Base\DomainsInfoBase.cs" />
+    <Compile Include="Common\Models\Base\HostingsInfoBase.cs" />
+    <Compile Include="Common\Models\Base\PartnersInfoBase.cs" />
+    <Compile Include="Common\Models\Base\SupporterInfoBase.cs" />
+    <Compile Include="Common\Models\Base\TempCategoriesInfoBase.cs" />
+    <Compile Include="Common\Models\Base\TemplatesInfoBase.cs" />
+    <Compile Include="Common\Models\Base\UsersInfoBase.cs" />
+    <Compile Include="Common\Models\Base\VisitInfoBase.cs" />
+    <Compile Include="Common\Models\Base\WebsitesInfoBase.cs" />
+    <Compile Include="Common\Models\CategoriesInfo.cs" />
+    <Compile Include="Common\Models\CHRTList.cs" />
+    <Compile Include="Common\Models\CustomersInfo.cs" />
+    <Compile Include="Common\Models\DomainsInfo.cs" />
+    <Compile Include="Common\Models\HostingsInfo.cs" />
+    <Compile Include="Common\Models\PartnersInfo.cs" />
+    <Compile Include="Common\Models\SupporterInfo.cs" />
+    <Compile Include="Common\Models\TempCategoriesInfo.cs" />
+    <Compile Include="Common\Models\TemplatesInfo.cs" />
+    <Compile Include="Common\Models\UsersInfo.cs" />
+    <Compile Include="Common\Models\VisitInfo.cs" />
+    <Compile Include="Common\Models\WebsitesInfo.cs" />
+    <Compile Include="DAL\DAO\ArticlesDAO.cs" />
+    <Compile Include="DAL\DAO\Base\ArticlesDAOBase.cs" />
+    <Compile Include="DAL\DAO\Base\CategoriesDAOBase.cs" />
+    <Compile Include="DAL\DAO\Base\CustomersDAOBase.cs" />
+    <Compile Include="DAL\DAO\Base\DomainsDAOBase.cs" />
+    <Compile Include="DAL\DAO\Base\HostingsDAOBase.cs" />
+    <Compile Include="DAL\DAO\Base\PartnersDAOBase.cs" />
+    <Compile Include="DAL\DAO\Base\SupporterDAOBase.cs" />
+    <Compile Include="DAL\DAO\Base\TempCategoriesDAOBase.cs" />
+    <Compile Include="DAL\DAO\Base\TemplatesDAOBase.cs" />
+    <Compile Include="DAL\DAO\Base\UsersDAOBase.cs" />
+    <Compile Include="DAL\DAO\Base\VisitDAOBase.cs" />
+    <Compile Include="DAL\DAO\Base\WebsitesDAOBase.cs" />
+    <Compile Include="DAL\DAO\CategoriesDAO.cs" />
+    <Compile Include="DAL\DAO\CustomersDAO.cs" />
+    <Compile Include="DAL\DAO\DomainsDAO.cs" />
+    <Compile Include="DAL\DAO\HostingsDAO.cs" />
+    <Compile Include="DAL\DAO\PartnersDAO.cs" />
+    <Compile Include="DAL\DAO\SupporterDAO.cs" />
+    <Compile Include="DAL\DAO\TempCategoriesDAO.cs" />
+    <Compile Include="DAL\DAO\TemplatesDAO.cs" />
+    <Compile Include="DAL\DAO\UsersDAO.cs" />
+    <Compile Include="DAL\DAO\VisitDAO.cs" />
+    <Compile Include="DAL\DAO\WebsitesDAO.cs" />
+    <Compile Include="DAL\Utils\Constants.cs" />
+    <Compile Include="DAL\Utils\DbConstants.cs" />
+    <Compile Include="DAL\Utils\SqlClientUtility.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

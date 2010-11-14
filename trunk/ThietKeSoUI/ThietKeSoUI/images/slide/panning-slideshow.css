@@ -1,0 +1,47 @@
+/*
+	Panning Slideshow with jQuery
+	Build Internet Tutorial (www.buildinternet.com)
+	Written by Zach Dunn
+*/
+
+.banner_slider{margin:0; padding:0;}
+
+#window{
+	clear:both;
+	width:880px;
+	height:290px;
+	background: url(sliderbg.jpg);
+	overflow:hidden;
+	position:relative;
+	margin:10px auto 10px auto;
+}
+
+#slideshow{
+	width:880px;
+	height:700px;
+	overflow:hidden;
+	position:relative;
+}
+
+#content{
+	background: url('images/speech-bubble.jpg') top left no-repeat;;
+	font-family:georgia, serif;
+	width:880px;
+	margin:0px auto 10px auto;
+	overflow:hidden;
+	padding-top:20px;
+}
+
+	#content p{font-size:16px; line-height:1.6em; padding:40px 30px 30px 0px; margin:0;}
+		#content p a{color:#73ccff;}
+		#content img{float:left; padding:30px;}
+		
+	p.footer{text-align:center; color:#ccc; font-size:12px; font-family: arial, sans-serif;}
+		p.footer a{color:#73ccff; text-decoration: none;}
+		
+#slideshow li{
+	width:960px;
+	height:350px;
+	float:left;
+	display:inline;
+}
