@@ -1,0 +1,92 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="ThietKeSoUI.MasterPages.MasterPage" %>
+
+<%@ Register src="~/UserControls/MainMenu.ascx" tagname="MainMenu" tagprefix="uc1" %>
+<%@ Register src="~/UserControls/LeftArea.ascx" tagname="LeftArea" tagprefix="uc3" %>
+<%@ Register Src="~/UserControls/BottomArea.ascx" TagName="BottomArea" TagPrefix="uc4" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>www.ThietKeSo.net</title>
+	<meta name="keywords" content="Web Hosting Template, Free CSS Website" />
+	<meta name="description" content="Web Hosting Template - Free CSS Website by templatemo.com" />
+	<link href="../css/templatemo_style.css" rel="stylesheet" type="text/css" />
+	<link href="../images/thietkeso-icon.png" type="image/ico" rel="shortcut icon" />
+	
+	
+	<link rel="stylesheet" href="../images/slide/panning-slideshow.css" />	
+	<script src="../images/slide/jquery-latest.js" type="text/javascript"></script>
+	<script src="../images/slide/jquery_002.js" type="text/javascript"></script>
+	<script src="../images/slide/jquery.js" type="text/javascript"></script>
+	<script src="../images/slide/image-rotator.js" type="text/javascript"></script>
+	
+	<style type="text/css">
+	    <!--
+	    .style1 {
+		    font-size: 22px;
+		    color: #fb6e26;
+	    }
+	    -->
+	</style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    	<div id="thietkeso_top">
+		<div id='thietkeso_banner'>
+            <embed wmode="transparent" menu="false" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" allowscriptaccess="sameDomain" name="FlashLogo" bgcolor="#ffffff" quality="High" src="../swf/baner_new_985x100.swf" align="middle" width="900" height="100">
+        </div>
+    </div>    
+     <div id="templatemo_container">
+        <!-- div class="templatemo_content_top"></div-->    
+        <div id="templatemo_content">       
+            <div id="templatemo_menu">
+                    <uc1:MainMenu ID="MainMenu1" runat="server" />
+            </div>	
+    	    <div id="thietkeso_tipintro">
+    		    <marquee>
+				    Chúng tôi luỗn nỗ lực hết mình để khách hàng hài lòng nhất.
+    		    </marquee>
+    	    </div>
+    	    <div style="float:right;color:red;font-size:9pt;">
+			    HotLine: <b> 0987.550.986 / 0977.197.167</b>
+    	    </div>
+    	    <div id="thietkeso_line"></div>
+    	    
+            <!--begin slide -->
+            <asp:ContentPlaceHolder ID="cphBannerSlide" runat="server">
+	            
+        	</asp:ContentPlaceHolder>
+		    <!--end slide -->
+		    
+            <!-- Begin Left Area-->
+      	    <div id='thietkeso_left'>
+       		    <uc3:LeftArea ID="LeftArea1" runat="server" />
+            </div>
+            <!-- End Left Area-->
+            
+      	    <!-- Begin Main Area -->
+            <div id="thietkeso_right">
+                <asp:ContentPlaceHolder ID="cplMainArea" runat="server">    
+        	    </asp:ContentPlaceHolder>
+            </div>        
+            <!--End Main Area-->
+            
+            <!--Begin Bottom Area-->
+            <uc4:BottomArea ID="BottomArea1" runat="server" />
+            <!--End Bottom Area-->
+        
+        <!--Begin Footer-->
+        <div class="templatemo_content_bottom"></div>        
+    	    <div id="templatemo_footer">
+		    <a href="#">Home</a> | <a href="#">Hosting Features</a> | <a href="#">Help Center</a> | <a href="#">Resellers</a> | <a href="#"> Our Company</a> | <a href="#">Contact Us</a><br />
+            Copyright ©  <a href="#"><b>Your Company Name</b></a> | Designed by <a href="http://www.templatemo.com" target="_blank"><b>templatemo.com</b></a>
+            </div>
+        <!--End Footer-->
+        
+    </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,10 @@
+C:\Users\TonyHieu\Documents\Visual Studio 2008\Projects\ThietKeSoUI\ThietKeSO\bin\Debug\ThietKeSO.dll
+C:\Users\TonyHieu\Documents\Visual Studio 2008\Projects\ThietKeSoUI\ThietKeSO\bin\Debug\ThietKeSO.pdb
+C:\Users\TonyHieu\Documents\Visual Studio 2008\Projects\ThietKeSoUI\ThietKeSO\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\TonyHieu\Documents\Visual Studio 2008\Projects\ThietKeSoUI\ThietKeSO\obj\Debug\ThietKeSO.dll
+C:\Users\TonyHieu\Documents\Visual Studio 2008\Projects\ThietKeSoUI\ThietKeSO\obj\Debug\ThietKeSO.pdb
+C:\Users\RedDevils\Desktop\TKS_V3\ThietKeSoUI\ThietKeSO\bin\Debug\ThietKeSO.dll
+C:\Users\RedDevils\Desktop\TKS_V3\ThietKeSoUI\ThietKeSO\bin\Debug\ThietKeSO.pdb
+C:\Users\RedDevils\Desktop\TKS_V3\ThietKeSoUI\ThietKeSO\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\RedDevils\Desktop\TKS_V3\ThietKeSoUI\ThietKeSO\obj\Debug\ThietKeSO.dll
+C:\Users\RedDevils\Desktop\TKS_V3\ThietKeSoUI\ThietKeSO\obj\Debug\ThietKeSO.pdb
