@@ -10,8 +10,8 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using System.Xml.Linq;
-//using MailSender.Accessor;
-//using MailSender.Helper;
+using TKSUltilities.Accessor;
+using TKSUltilities.Helper;
 namespace ThietKeSoUI
 {
     public partial class Contact : System.Web.UI.Page
