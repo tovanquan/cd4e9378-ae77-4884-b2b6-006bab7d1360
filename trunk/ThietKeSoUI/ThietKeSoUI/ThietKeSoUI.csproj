@@ -99,6 +99,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="admincp\addNewArticle.aspx.cs">
+      <DependentUpon>addNewArticle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admincp\addNewArticle.aspx.designer.cs">
+      <DependentUpon>addNewArticle.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admincp\AdminMasterPage.Master.cs">
       <DependentUpon>AdminMasterPage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -106,6 +113,14 @@
     <Compile Include="admincp\AdminMasterPage.Master.designer.cs">
       <DependentUpon>AdminMasterPage.Master</DependentUpon>
     </Compile>
+    <Compile Include="admincp\ArticleCtrl.aspx.cs">
+      <DependentUpon>ArticleCtrl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admincp\ArticleCtrl.aspx.designer.cs">
+      <DependentUpon>ArticleCtrl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admincp\Constant\Constant.cs" />
     <Compile Include="admincp\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -213,7 +228,9 @@
     <Content Include="UserControls\MainMenu.ascx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="admincp\addNewArticle.aspx" />
     <Content Include="admincp\AdminMasterPage.Master" />
+    <Content Include="admincp\ArticleCtrl.aspx" />
     <Content Include="admincp\Default.aspx" />
     <Content Include="admincp\images\login-bg.png" />
     <Content Include="admincp\Login.aspx" />
