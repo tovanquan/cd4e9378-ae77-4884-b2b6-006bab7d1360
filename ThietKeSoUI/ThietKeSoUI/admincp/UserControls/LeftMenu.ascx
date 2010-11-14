@@ -1,11 +1,10 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="LeftMenu.ascx.cs" Inherits="ThietKeSoUI.admincp.UserControls.LeftMenu" %>
                     <ul class="sideNav">
-                    	<li><a href="#">Hệ Thống</a></li>
-                    	<li><a href="TempCategories.aspx" class="active">Danh Mục Template</a></li>
-                    	<li><a href="#">Templates</a></li>
-                    	<li><a href="#">Danh Mục Tin Tức</a></li>
-                    	<li><a href="#">Tin Tức</a></li>
-                    	<li><a href="#">Supporter</a></li>
-                    	<li><a href="#">Khách Hàng</a></li>
-                    	<li><a href="#">Thông Tin Cá Nhân</a></li>
+                    	<li><a id="liSystem" href="#">Hệ Thống</a></li>
+                    	<li><a id="liTempCat" href="../TempCategories.aspx">Danh Mục Template</a></li>
+                    	<li><a id="liArtCat" href="#">Danh Mục Tin Tức</a></li>
+                    	<li><a id="liArt" href="#">Tin Tức</a></li>
+                    	<li><a id="liSupporter" href="../Supporter.aspx">Supporter</a></li>
+                    	<li><a id="liCustomer" href="#">Khách Hàng</a></li>
+                    	<li><a id="liProfile" href="#">Thông Tin Cá Nhân</a></li>
                     </ul>
