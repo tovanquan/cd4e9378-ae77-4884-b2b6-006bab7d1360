@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MailSender.Biz
+namespace MailSender.Helper
 {
     class Service
     {

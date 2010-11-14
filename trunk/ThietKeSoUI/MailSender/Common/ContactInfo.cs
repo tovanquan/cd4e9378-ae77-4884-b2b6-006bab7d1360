@@ -5,14 +5,20 @@ using System.Text;
 
 namespace MailSender.Accessor
 {
-    public class CustomerInformation
+    public class ListContact 
+    {
+        public List<ContactInfo> listContact;
+        public ListContact() 
+        {
+            listContact = new List<ContactInfo>();
+        }
+    }
+    public class ContactInfo
     {
         private string name;
         private string address;
         private string email;
         private string mobile;
-        private string title;
-        private string content;
 
         #region Properties
 
@@ -49,39 +55,21 @@ namespace MailSender.Accessor
             get { return this.mobile; }
             set { this.mobile = value; }
         }
-        /// <summary>
-        /// Gets or sets the title value.
-        /// </summary>
-        public string Title
-        {
-            get { return this.title; }
-            set { this.title = value; }
-        }
-        /// <summary>
-        /// Gets or sets the content value.
-        /// </summary>
-        public string Content
-        {
-            get { return this.content; }
-            set { this.content = value; }
-        }
         #endregion
         /// <summary>
         /// Initializes a new instance of the CustomerInformation class.
 		/// </summary>
-        public CustomerInformation() { }
+        public ContactInfo() { }
 
 		/// <summary>
         /// Initializes a new instance of the CustomerInformation class.
 		/// </summary>
-        public CustomerInformation(string name, string address, string email, string mobile, string title, string content)
+        public ContactInfo(string name, string address, string email, string mobile)
 		{
             this.name = name;
 			this.address = address;
-			this.content = content;
 			this.email = email;
             this.mobile = mobile;
-            this.title = title;
 		}
     }
 }
