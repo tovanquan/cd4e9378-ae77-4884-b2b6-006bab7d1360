@@ -13,7 +13,7 @@
                         <b>CHỈNH SỬA</b>
                     </td>
                 </tr>  
-                
+                <asp:Label ID="lb
                 <tr class="odd">
                     <td>Nguyen Xuan Hieu</td>
                     <td class="action">

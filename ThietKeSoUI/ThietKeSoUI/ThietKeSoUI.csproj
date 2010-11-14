@@ -135,6 +135,13 @@
     <Compile Include="admincp\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="admincp\Supporter.aspx.cs">
+      <DependentUpon>Supporter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admincp\Supporter.aspx.designer.cs">
+      <DependentUpon>Supporter.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admincp\TempCategories.aspx.cs">
       <DependentUpon>TempCategories.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -211,6 +218,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MailSender\MailSender.csproj">
+      <Project>{6BEA6DBC-78A3-4823-A521-377CEC8E0A6D}</Project>
+      <Name>MailSender</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ThietKeSO\ThietKeSo.csproj">
       <Project>{23023FD3-9353-4854-A0F8-7FDE1E55037F}</Project>
       <Name>ThietKeSo</Name>
@@ -254,6 +265,7 @@
     <Content Include="admincp\style\img\transdmin-light.gif" />
     <Content Include="admincp\style\js\jNice.js" />
     <Content Include="admincp\style\js\jquery.js" />
+    <Content Include="admincp\Supporter.aspx" />
     <Content Include="admincp\TempCategories.aspx" />
     <Content Include="admincp\UserControls\LeftMenu.ascx" />
     <Content Include="Global.asax" />
