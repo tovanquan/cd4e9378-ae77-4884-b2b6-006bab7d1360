@@ -1,0 +1,5 @@
+D:\SAVE\ProjectC#.NET\PetStory\ThietKeSoUI\TKSUltilities\bin\Debug\TKSUltilities.dll
+D:\SAVE\ProjectC#.NET\PetStory\ThietKeSoUI\TKSUltilities\bin\Debug\TKSUltilities.pdb
+D:\SAVE\ProjectC#.NET\PetStory\ThietKeSoUI\TKSUltilities\obj\Debug\ResolveAssemblyReference.cache
+D:\SAVE\ProjectC#.NET\PetStory\ThietKeSoUI\TKSUltilities\obj\Debug\TKSUltilities.dll
+D:\SAVE\ProjectC#.NET\PetStory\ThietKeSoUI\TKSUltilities\obj\Debug\TKSUltilities.pdb
