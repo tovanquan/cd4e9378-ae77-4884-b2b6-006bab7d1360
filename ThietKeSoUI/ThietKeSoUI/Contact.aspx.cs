@@ -10,7 +10,8 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using System.Xml.Linq;
-using MailSender.Common;
+using MailSender.Accessor;
+using MailSender.Helper;
 namespace ThietKeSoUI
 {
     public partial class Contact : System.Web.UI.Page
@@ -36,8 +37,9 @@ namespace ThietKeSoUI
                     customerInfo.Title = tbTitle.Text.Trim();
                     customerInfo.Name = tbName.Text.Trim();
                     customerInfo.Mobile = tbTel.Text.Trim();
-                    // Utility.SendEmail("hdesign89@gmail.com", tbTitle.Text.Trim(), tbContent.Text.Trim(),true);
-                    Utility.SendEmail(customerInfo,true);
+                    //Utility.SendEmail("lienhe.thietkeso@gmail.com", tbTitle.Text.Trim(), tbContent.Text.Trim(), true);
+                    Utility.SendEmail("lienhe.thietkeso@gmail.com",customerInfo,true);
+                    //Gui mail lai cho khach hang
                 }
             }
             catch (DataException ex) 
