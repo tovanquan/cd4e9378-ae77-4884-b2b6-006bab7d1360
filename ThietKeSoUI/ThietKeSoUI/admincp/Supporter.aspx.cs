@@ -71,6 +71,21 @@ namespace ThietKeSoUI.admincp
             iSupporterService.Update(supporterInfo);
         }
         /// <summary>
+        /// Event Button Add Click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            SupporterInfo supporterInfo = new SupporterInfo();
+            supporterInfo.Name = tbName2.Text.Trim();
+            supporterInfo.Mail = tbMail2.Text.Trim();
+            supporterInfo.Mobile = tbMobile2.Text.Trim();
+            supporterInfo.Skype = tbSkype2.Text.Trim();
+            supporterInfo.Yahoo = tbYahoo2.Text.Trim();
+            iSupporterService.Insert(supporterInfo);
+        }
+        /// <summary>
         /// Event Link Button Delete Click
         /// </summary>
         /// <param name="sender"></param>
