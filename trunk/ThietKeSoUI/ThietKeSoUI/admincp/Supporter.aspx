@@ -16,7 +16,15 @@
             var mobile = document.getElementById('<%=tbMobile.ClientID %>');
             mobile.value = _mobile;
             document.getElementById('<%=hdEditID.ClientID %>').value = _id;
-        }        
+        }
+        function DeleteSupporter(idDelete) {
+            var lbtnDelete = document.getElementById('<%=lbtnDelete.ClientID %>');
+            if (confirm("Do you want to delete thi record?")) {
+                var hdDelID = document.getElementById('<%=hdDelID.ClientID %>');
+                hdDelID.value = idDelete;
+                __doPostBack('ctl00$cphMainContent$lbtnDelete', '');
+            }
+        }
     </script>
 
     <h2 style="margin-bottom:5px"> <a href="Default.aspx">Home</a> &raquo; <a href="Supporter.aspx" class="active">Supporter</a></h2>    
@@ -45,10 +53,10 @@
                     <asp:Button ID="btnEdit" runat="server" Text="Sửa"  OnClick="btnEdit_Click" />
                 </fieldset>                 
              </div>
-             
-             
+             <asp:LinkButton ID="lbtnDelete" runat="server" Text="" OnClick="lbtnDelete_Click" ></asp:LinkButton>
              <div id="SomeHidden" style="display:none">
                 <asp:HiddenField ID="hdEditID" runat="server" Value="0" />
+                <asp:HiddenField ID="hdDelID" runat="server" Value="0" />
              </div>
 </asp:Content>
 
