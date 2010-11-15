@@ -35,7 +35,7 @@ namespace ThietKeSoUI.admincp
             {
                 foreach (SupporterInfo supporterInfo in lstSupporterInfo)
                 {
-                    strTS.AppendFormat("<tr class=\"odd\"><td>{0}</td><td>{1}</td><td>{2}</td><td class=\"action\"><a onclick=\"DisplayEditPanel('{3}','{4}','{5}','{6}', '{7}','{8}');\" href=\"#\" class=\"edit\">Edit</a><a href=\"#\" class=\"delete\">Delete</a></td></tr>",
+                    strTS.AppendFormat("<tr class=\"odd\"><td>{0}</td><td>{1}</td><td>{2}</td><td class=\"action\"><a onclick=\"DisplayEditPanel('{3}','{4}','{5}','{6}', '{7}','{8}');\" href=\"#\" class=\"edit\">Edit</a><a href=\"#\" class=\"delete\" onclick=\"DeleteSupporter('{9}');\">Delete</a></td></tr>",
                         supporterInfo.Name,//0
                         supporterInfo.Yahoo,//1
                         supporterInfo.Mobile,//2
@@ -44,13 +44,19 @@ namespace ThietKeSoUI.admincp
                         supporterInfo.Skype,//5
                         supporterInfo.Mail,//6
                         supporterInfo.Mobile,//7
-                        supporterInfo.ID);//8
+                        supporterInfo.ID, //8
+                        supporterInfo.ID);//9
                 }
             }
             lbTableSupporter.Text = strTS.ToString();
         }
 
         #region Event
+        /// <summary>
+        /// Event Button Edit Click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnEdit_Click(object sender, EventArgs e)
         {
             SupporterInfo supporterInfo = new SupporterInfo();
@@ -63,6 +69,18 @@ namespace ThietKeSoUI.admincp
             supporterInfo.Mail = tbMail.Text.Trim();
             supporterInfo.Mobile = tbMobile.Text.Trim();
             iSupporterService.Update(supporterInfo);
+        }
+        /// <summary>
+        /// Event Link Button Delete Click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void lbtnDelete_Click(object sender, EventArgs e)
+        {
+            int id= 0;
+            int.TryParse(hdDelID.Value, out id);
+            iSupporterService.Delete(id);
+            Response.Redirect("Supporter.aspx");
         }
         #endregion
     }
