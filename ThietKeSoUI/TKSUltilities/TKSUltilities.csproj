@@ -48,6 +48,7 @@
     <Compile Include="Accessor\ContactInfo.cs" />
     <Compile Include="Accessor\CustomerInformation.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="Helper\ContactHelper.cs" />
     <Compile Include="Helper\Service.cs" />
     <Compile Include="Helper\Utility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

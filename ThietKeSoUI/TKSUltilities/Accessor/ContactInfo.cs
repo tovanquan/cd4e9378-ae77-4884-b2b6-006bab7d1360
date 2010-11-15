@@ -5,14 +5,6 @@ using System.Text;
 
 namespace TKSUltilities.Accessor
 {
-    public class ListContact 
-    {
-        public List<ContactInfo> listContact;
-        public ListContact() 
-        {
-            listContact = new List<ContactInfo>();
-        }
-    }
     public class ContactInfo
     {
         private string name;

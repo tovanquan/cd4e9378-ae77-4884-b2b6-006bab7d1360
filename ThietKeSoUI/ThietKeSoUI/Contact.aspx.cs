@@ -12,13 +12,13 @@ using System.Web.UI.HtmlControls;
 using System.Xml.Linq;
 using TKSUltilities.Accessor;
 using TKSUltilities.Helper;
+using System.Collections.Generic;
 namespace ThietKeSoUI
 {
     public partial class Contact : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-
+        {          
         }
 
         protected void btnSend_Click(object sender, EventArgs e)
@@ -37,12 +37,16 @@ namespace ThietKeSoUI
                     customerInfo.Title = tbTitle.Text.Trim();
                     customerInfo.Name = tbName.Text.Trim();
                     customerInfo.Mobile = tbTel.Text.Trim();
-                    //Utility.SendEmail("lienhe.thietkeso@gmail.com", tbTitle.Text.Trim(), tbContent.Text.Trim(), true);
+
+                    // Add customer information into xmlContactFile
+                    ContactHelper.AddToContactList(customerInfo, Server.MapPath("~\\ContactList.xml"));
+                    // Send mail to thiet ke so
                     Utility.SendEmail("lienhe.thietkeso@gmail.com", customerInfo, true);
-                    //Gui mail lai cho khach hang
+                    // Gui mail lai cho khach hang
+                    Response.Redirect("thong bao thanh cong");
                 }
             }
-            catch (DataException ex) 
+            catch (DataException ex)
             {
                 lbError.Text = ex.Message;
                 lbError.Visible = true;
@@ -54,15 +58,15 @@ namespace ThietKeSoUI
             try
             {
                 if (string.IsNullOrEmpty(tbName.Text.Trim()))
-                    throw new DataException("ten deo duoc de trong");
+                    throw new DataException("Nhập vào tên của bạn");
                 if (string.IsNullOrEmpty(tbEmail.Text.Trim()))
-                    throw new DataException("Email deo duoc de trong");
+                    throw new DataException("Nhập vào email của bạn");
                 if (!Utility.CheckInputEmail(tbEmail.Text.Trim()))
-                    throw new DataException("Nhap sai me dinh dang email roi");
+                    throw new DataException("Địa chỉ email bạn nhập không đúng");
                 if (string.IsNullOrEmpty(tbTitle.Text.Trim()))
-                    throw new DataException("Title deo duoc de trong");
+                    throw new DataException("Nhập vào tiêu đề");
                 if (string.IsNullOrEmpty(tbContent.Text.Trim()))
-                    throw new DataException("Content deo duoc de trong");
+                    throw new DataException("Nhập vào nội dung");
             }
             catch (DataException ex)
             {
