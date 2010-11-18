@@ -15,7 +15,8 @@
 
     <!-- JavaScripts-->
     <script type="text/javascript" src="style/js/jquery.js"></script>
-    <script type="text/javascript" src="style/js/jNice.js"></script>
+    <script type="text/javascript" src="style/js/jNice.js"></script>    
+    <script type="text/javascript" src="ckeditor/ckeditor.js"></script> 
 </head>
 <body>
     <form id="form1" runat="server">
