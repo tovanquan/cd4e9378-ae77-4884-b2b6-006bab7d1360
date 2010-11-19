@@ -113,6 +113,13 @@
     <Compile Include="admincp\ArticleCtrl.aspx.designer.cs">
       <DependentUpon>ArticleCtrl.aspx</DependentUpon>
     </Compile>
+    <Compile Include="admincp\CategoriesCtrl.aspx.cs">
+      <DependentUpon>CategoriesCtrl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admincp\CategoriesCtrl.aspx.designer.cs">
+      <DependentUpon>CategoriesCtrl.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admincp\Constant\Constant.cs" />
     <Compile Include="admincp\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -244,6 +251,7 @@
   <ItemGroup>
     <Content Include="admincp\AdminMasterPage.Master" />
     <Content Include="admincp\ArticleCtrl.aspx" />
+    <Content Include="admincp\CategoriesCtrl.aspx" />
     <Content Include="admincp\ckeditor\adapters\jquery.js" />
     <Content Include="admincp\ckeditor\CHANGES.html" />
     <Content Include="admincp\ckeditor\ckeditor.asp" />
