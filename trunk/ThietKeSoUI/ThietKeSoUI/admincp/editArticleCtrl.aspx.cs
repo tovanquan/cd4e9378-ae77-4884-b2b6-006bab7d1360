@@ -50,11 +50,11 @@ namespace ThietKeSoUI.admincp
                 dataInfo.Author = "temp";
                 dataInfo.Avatar = "temp";
                 dataInfo.CategoryID = int.Parse(cboCategory.SelectedValue);
-                dataInfo.Contents = contentValue.Value;
+                dataInfo.Contents = contentValue.Value.Trim();
                 dataInfo.CreateDate = DateTime.Now;
                 dataInfo.Image = "temp";
-                dataInfo.Summary = tbxSummary.Text;
-                dataInfo.Title = tbxTitle.Text;
+                dataInfo.Summary = tbxSummary.Text.Trim();
+                dataInfo.Title = tbxTitle.Text.Trim();
                 iArticlesService.Update(dataInfo);
                 Response.Redirect("ArticleCtrl.aspx");
             }
@@ -64,11 +64,11 @@ namespace ThietKeSoUI.admincp
                 dataInfo.Author = "temp";
                 dataInfo.Avatar = "temp";
                 dataInfo.CategoryID = int.Parse(cboCategory.SelectedValue);
-                dataInfo.Contents = contentValue.Value;
+                dataInfo.Contents = contentValue.Value.Trim();
                 dataInfo.CreateDate = DateTime.Now;
                 dataInfo.Image = "temp";
-                dataInfo.Summary = tbxSummary.Text;
-                dataInfo.Title = tbxTitle.Text;
+                dataInfo.Summary = tbxSummary.Text.Trim();
+                dataInfo.Title = tbxTitle.Text.Trim();
                 iArticlesService.Insert(dataInfo);
                 Response.Redirect("ArticleCtrl.aspx");
             }
