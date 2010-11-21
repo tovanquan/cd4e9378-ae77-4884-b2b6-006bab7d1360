@@ -1,5 +1,4 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/admincp/AdminMasterPage.Master" AutoEventWireup="true" CodeBehind="editArticleCtrl.aspx.cs" Inherits="ThietKeSoUI.admincp.editArticleCtrl" Title="Untitled Page" ValidateRequest="false" %>
-<%@ Register assembly="FredCK.FCKeditorV2" namespace="FredCK.FCKeditorV2" tagprefix="FCKeditorV2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .style3
