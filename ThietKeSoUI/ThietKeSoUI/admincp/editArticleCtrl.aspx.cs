@@ -154,7 +154,7 @@ namespace ThietKeSoUI.admincp
                     Response.Redirect("ArticleCtrl.aspx");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 Response.Redirect("Error.aspx");
 
