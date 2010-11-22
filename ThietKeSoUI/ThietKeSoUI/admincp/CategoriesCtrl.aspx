@@ -8,8 +8,10 @@
          var name = document.getElementById('<%=tbName.ClientID %>');
          name.value = _name;
          var yahoo = document.getElementById('<%=tbDes.ClientID %>');
-         yahoo.value = _des;       
+         yahoo.value = _des;
          document.getElementById('<%=hdEditID.ClientID %>').value = _id;
+         var btnEdit = document.getElementById('<%=btnEdit.ClientID %>');
+         btnEdit.value = 'Update';
      }
      function DeleteSupporter(idDelete) {
          var lbtnDelete = document.getElementById('<%=lbtnDelete.ClientID %>');
@@ -19,13 +21,21 @@
              __doPostBack('ctl00$cphMainContent$lbtnDelete', '');
          }
      }
+     function ShowAddPanel() {
+         document.getElementById('panelEdit').style.display = 'block';
+         var name = document.getElementById('<%=tbName.ClientID %>');
+         name.value = '';
+         var yahoo = document.getElementById('<%=tbDes.ClientID %>');
+         yahoo.value = '';
+         var btnEdit = document.getElementById('<%=btnEdit.ClientID %>');
+         btnEdit.value = 'Save';
+         document.getElementById('<%=hdEditID.ClientID %>').value = '0';
+     }
     </script>
 
     <h2 style="margin-bottom:5px">
         <a href="Default.aspx">Home</a> » <a class="active" href="ArticleCtrl.aspx">Categories</a></h2>
-    <h3>
-        Quản Lý Danh Mục
-    </h3>
+   <h3>Categories Manager >> <a href="javascript:ShowAddPanel();" >Add New</a></h3>
       <table cellpadding="0" cellspacing="0" border=1>
 			    <tr style="background-color:black">
                     <td><b>ID</b></td>
