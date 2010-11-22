@@ -40,6 +40,8 @@ namespace ThietKeSoUI.admincp
             if (passMd5.Trim().Equals(usersInfo.Password.Trim()))
             {
                 Session["UserAuthenticated"] = 1;
+                Session["User"] = user;
+                Session["UserID"] = usersInfo.ID;
                 Response.Redirect("Default.aspx");
             }
         }
