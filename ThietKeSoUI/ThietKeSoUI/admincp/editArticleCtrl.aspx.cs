@@ -16,12 +16,24 @@ using thietkeso.Biz;
 using thietkeso.Biz.Services;
 using thietkeso.Common.Models;
 using System.Text;
+using System.IO;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.Text.RegularExpressions;
+
 
 namespace ThietKeSoUI.admincp
 {
     public partial class editArticleCtrl : System.Web.UI.Page
     {
         #region Properies
+
+        const String sVirtualPath = "/images/";
+        const String sOverlayText = ".NET Rules!!";
+        const int iMaxWidth = 550;
+        const int iMaxThumbWidth = 75;
+        String sPath = HttpContext.Current.Server.MapPath(sVirtualPath);
+
         /// <summary>
         /// Articles Service
         /// </summary>
@@ -61,8 +73,15 @@ namespace ThietKeSoUI.admincp
                     else
                     {
                         btnSave.Text = "Update";
+                        checkUpload.Visible = true;
+                        uploadedFile.Enabled = false;
                         GetNewData(newID);
                     }
+                }
+                else 
+                {
+                    checkUpload.Visible = false;
+                    image.Visible = false;
                 }
 
             }
@@ -85,6 +104,7 @@ namespace ThietKeSoUI.admincp
                 tbxSummary.Text = newData.Summary;
                 cboCategory.SelectedValue = newData.CategoryID + "";
                 tbxContent.Value = newData.Contents;
+                image.ImageUrl = newData.Image;                
             }
         }
         #endregion
@@ -126,33 +146,73 @@ namespace ThietKeSoUI.admincp
             {
                 if (!string.IsNullOrEmpty(Request["ID"]))//Update
                 {
+                    string myPath = string.Empty;
                     int newID = int.Parse(Request["ID"]);
                     ArticlesInfo dataInfo = iArticlesService.Select(newID);
-                    dataInfo.Author = "temp";
-                    dataInfo.Avatar = "temp";
-                    dataInfo.CategoryID = int.Parse(cboCategory.SelectedValue);
-                    dataInfo.Contents = contentValue.Value.Trim();
-                    dataInfo.CreateDate = DateTime.Now;
-                    dataInfo.Image = "temp";
-                    dataInfo.Summary = tbxSummary.Text.Trim();
-                    dataInfo.Title = tbxTitle.Text.Trim();
-                    iArticlesService.Update(dataInfo);
-                    Response.Redirect("ArticleCtrl.aspx");
+                    if (checkUpload.Checked)
+                    {
+                        if (uploadedFile.PostedFile != null)
+                        {
+                            string [] temp = dataInfo.Image.Split('/');
+                            string imageFile = temp.Last();
+                            myPath = Process_Upload(imageFile);
+                            if (myPath != null)
+                            {
+                                dataInfo.Author = Session["User"].ToString();
+                                dataInfo.Avatar = myPath;
+                                dataInfo.CategoryID = int.Parse(cboCategory.SelectedValue);
+                                dataInfo.Contents = contentValue.Value.Trim();
+                                dataInfo.CreateDate = DateTime.Now;
+                                dataInfo.Image = myPath;
+                                dataInfo.Summary = tbxSummary.Text.Trim();
+                                dataInfo.Title = tbxTitle.Text.Trim();
+                                iArticlesService.Update(dataInfo);
+                                Response.Redirect("ArticleCtrl.aspx");
+                            }
+                        }
+                        else { message.Text = "please choose an image file!"; }
+                    }
+                    else 
+                    {
+                        dataInfo.Author = Session["User"].ToString();
+                        dataInfo.CategoryID = int.Parse(cboCategory.SelectedValue);
+                        dataInfo.Contents = contentValue.Value.Trim();
+                        dataInfo.CreateDate = DateTime.Now;
+                        dataInfo.Summary = tbxSummary.Text.Trim();
+                        dataInfo.Title = tbxTitle.Text.Trim();
+                        iArticlesService.Update(dataInfo);
+                        Response.Redirect("ArticleCtrl.aspx");
+                    }
                 }
                 else //Add new
                 {
-                    ArticlesInfo dataInfo = new ArticlesInfo();
-                    dataInfo.Author = "temp";
-                    dataInfo.Avatar = "temp";
-                    dataInfo.CategoryID = int.Parse(cboCategory.SelectedValue);
-                    dataInfo.Contents = contentValue.Value.Trim();
-                    dataInfo.CreateDate = DateTime.Now;
-                    dataInfo.Image = "temp";
-                    dataInfo.Summary = tbxSummary.Text.Trim();
-                    dataInfo.Title = tbxTitle.Text.Trim();
-                    iArticlesService.Insert(dataInfo);
-                    Response.Redirect("ArticleCtrl.aspx");
+                    if (uploadedFile.PostedFile != null)
+                    {
+                        string myPath = Process_Upload(string.Empty);
+                        if (myPath != null)
+                        {
+                            ArticlesInfo dataInfo = new ArticlesInfo();
+                            dataInfo.Author = Session["User"].ToString();
+                            dataInfo.Avatar = myPath;
+                            dataInfo.CategoryID = int.Parse(cboCategory.SelectedValue);
+                            dataInfo.Contents = contentValue.Value.Trim();
+                            dataInfo.CreateDate = DateTime.Now;
+                            dataInfo.Image = myPath;
+                            dataInfo.Summary = tbxSummary.Text.Trim();
+                            dataInfo.Title = tbxTitle.Text.Trim();
+                            iArticlesService.Insert(dataInfo);
+                            Response.Redirect("ArticleCtrl.aspx");
+                        }
+                    }
+                    else 
+                    {
+                        message.Text = "please choose an image file!";
+                    }
                 }
+            }
+            catch (System.Threading.ThreadAbortException) 
+            {
+            
             }
             catch (Exception ex)
             {
@@ -162,5 +222,109 @@ namespace ThietKeSoUI.admincp
 
         }
         #endregion
+
+        #region Upload Image
+
+        string Process_Upload(string fileName)
+        {
+            try
+            {                
+                //Check for common errors.
+                if (!Check_Upload(uploadedFile.PostedFile)) return null;
+
+                //Initializing local variables
+                HttpPostedFile myUpload = uploadedFile.PostedFile;
+                int myLength = myUpload.ContentLength;
+                String myType = myUpload.ContentType;
+                String myName = fileName;
+                if (string.IsNullOrEmpty(myName))
+                {
+                    myName = Guid.NewGuid().ToString();
+                }
+  
+                //Running main image processing routine
+               string mypath = Process_Image(myUpload.InputStream, Path.ChangeExtension(myName, ".jpg"));
+               return mypath;
+            }
+            catch (Exception)
+            {
+                message.Text = "Failed to upload image";
+                return null;
+            }
+        }
+
+        string Process_Image(Stream myStream, String myName)
+        {
+            //Initializing local variables
+            System.Drawing.Image myImage = System.Drawing.Image.FromStream(myStream);
+            String myPath = Path.Combine(sPath, myName);
+            int oldWidth = myImage.Width;
+            int oldHeight = myImage.Height;
+            int newWidth;
+            int newHeight;
+
+            //Determining new image size
+            if ((iMaxWidth > 0) && (oldWidth > iMaxWidth))
+            {
+                newWidth = iMaxWidth;
+                newHeight = (int)(oldHeight / ((Double)oldWidth / newWidth));
+            }
+            else
+            {
+                newWidth = oldWidth;
+                newHeight = oldHeight;
+            }
+
+            //Creating new, re-sized image
+            Bitmap myBitmap = new Bitmap(myImage, newWidth, newHeight);
+
+            //Writing text overlayed image to disk and cleaning up
+            myBitmap.Save(myPath, ImageFormat.Jpeg);
+            myBitmap.Dispose();
+
+            //Cleaning up parent image object
+            myImage.Dispose();
+            return Path.Combine(sVirtualPath,myName);
+        }
+
+        bool Check_Upload(HttpPostedFile fileUpped)
+        {
+            //Checking to see if field was left empty
+            if (fileUpped.FileName == "")
+            {
+                message.Text = "Upload Failed: No image sbumitted";
+                return false;
+            }
+            //Checking for Jpeg / Gif mime types
+            if (!Regex.IsMatch(fileUpped.ContentType, "image/(?:\\w?jpeg|gif|png)", RegexOptions.IgnoreCase))
+            {
+                message.Text = "Upload Failed: Only JPG's and GIF's allowed";
+                return false;
+            }
+            //Checking for zero length.  You could also use to check for large files.
+            if (fileUpped.ContentLength == 0)
+            {
+                message.Text = "Upload Failed: File cannot be zero bytes.";
+                return false;
+            }
+
+            return true;
+        }
+        #endregion
+
+        protected void checkUpload_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkUpload.Checked)
+            {
+                uploadedFile.Enabled = true;
+            }
+            else 
+            {
+                uploadedFile.Enabled = false;
+            
+            }
+        }
+
+
     }
 }
