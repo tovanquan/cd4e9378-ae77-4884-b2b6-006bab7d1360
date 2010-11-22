@@ -142,6 +142,11 @@ namespace ThietKeSoUI.admincp
         /// <param name="e"></param>
         protected void btnSave_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(tbxTitle.Text.Trim()) || string.IsNullOrEmpty(tbxSummary.Text.Trim()) || string.IsNullOrEmpty(contentValue.Value.Trim()))
+            {
+                message.Text = "Something not inputed";
+                return;
+            }
             try
             {
                 if (!string.IsNullOrEmpty(Request["ID"]))//Update
@@ -221,10 +226,33 @@ namespace ThietKeSoUI.admincp
             }
 
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void checkUpload_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkUpload.Checked)
+            {
+                uploadedFile.Enabled = true;
+            }
+            else
+            {
+                uploadedFile.Enabled = false;
+
+            }
+        }
         #endregion
 
         #region Upload Image
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
         string Process_Upload(string fileName)
         {
             try
@@ -253,6 +281,12 @@ namespace ThietKeSoUI.admincp
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="myStream"></param>
+        /// <param name="myName"></param>
+        /// <returns></returns>
         string Process_Image(Stream myStream, String myName)
         {
             //Initializing local variables
@@ -287,6 +321,11 @@ namespace ThietKeSoUI.admincp
             return Path.Combine(sVirtualPath,myName);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fileUpped"></param>
+        /// <returns></returns>
         bool Check_Upload(HttpPostedFile fileUpped)
         {
             //Checking to see if field was left empty
@@ -312,18 +351,7 @@ namespace ThietKeSoUI.admincp
         }
         #endregion
 
-        protected void checkUpload_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkUpload.Checked)
-            {
-                uploadedFile.Enabled = true;
-            }
-            else 
-            {
-                uploadedFile.Enabled = false;
-            
-            }
-        }
+       
 
 
     }
