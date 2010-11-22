@@ -28,10 +28,6 @@
         {
             width: 126px;
         }
-        .style12
-        {
-            width: 829px;
-        }
         .style13
         {
             width: 128px;
@@ -48,12 +44,34 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphMainContent" runat="server">
-        <h2 style="margin-bottom:5px">
+        <h2>
         <a href="Default.aspx">Home</a> » <a class="active" href="ArticleCtrl.aspx">
-        Article</a></h2>
+            Article</a></h2>
     <h3>
         Quản Lý Article</h3>
     <table style="width: 100%;">
+        <tr>
+            <td class="style11">
+                Image</td>
+            <td class="style3">
+                <table style="width: 100%;">
+                    <tr>
+                        <td>
+                            <asp:Image ID="image" runat="server" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:CheckBox ID="checkUpload" runat="server" AutoPostBack="True" 
+                                oncheckedchanged="checkUpload_CheckedChanged" Text="Change image" />
+                            <asp:FileUpload ID="uploadedFile" runat="server" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td class="style4">
+                &nbsp;</td>
+        </tr>
         <tr>
             <td class="style11">
                 Title</td>
@@ -99,6 +117,16 @@
             <td class="style3">
                 <asp:DropDownList ID="cboCategory" runat="server" Width="30%">
                 </asp:DropDownList>
+            </td>
+            <td class="style4">
+                &nbsp;</td>
+        </tr>
+       
+        <tr>
+            <td class="style13">
+                &nbsp;</td>
+            <td class="style3">
+                <asp:Label ID="message" runat="server" ForeColor="Red"></asp:Label>
             </td>
             <td class="style4">
                 &nbsp;</td>
