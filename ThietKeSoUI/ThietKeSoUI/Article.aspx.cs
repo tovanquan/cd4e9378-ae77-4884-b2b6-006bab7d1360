@@ -41,6 +41,7 @@ namespace ThietKeSoUI
                 lbLastModified.Text = articleInfo.CreateDate.ToString();
                 lbSummary.Text = articleInfo.Summary;
                 lbTitle.Text = articleInfo.Title;
+                imgArticle.ImageUrl = articleInfo.Image;
             }
             else Response.Redirect("~/Default.aspx");
         }

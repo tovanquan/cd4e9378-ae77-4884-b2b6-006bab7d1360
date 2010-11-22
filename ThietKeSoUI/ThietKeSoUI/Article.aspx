@@ -24,7 +24,7 @@
 						</p>
 					</div>
 					<div style='text-align:center'>
-						<asp:Image ID="imgArticle" runat="server" ImageUrl="~/images/noimage.jpg" CssClass="article_image" />
+						<asp:Image ID="imgArticle" runat="server" CssClass="article_image" />
 					</div>
 					<div class='article_content'>
 					    <asp:Label ID="lbContent" runat="server"
