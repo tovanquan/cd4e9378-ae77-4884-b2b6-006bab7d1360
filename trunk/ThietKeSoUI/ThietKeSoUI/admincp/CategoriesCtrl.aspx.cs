@@ -92,11 +92,26 @@ namespace ThietKeSoUI.admincp
                 CategoriesInfo categoryInfo = new CategoriesInfo();
                 int _id = 0;
                 int.TryParse(hdEditID.Value.Trim(), out _id);
-                categoryInfo.ID = _id;
-                categoryInfo.Name = tbName.Text.Trim();
-                categoryInfo.Description = tbDes.Text.Trim();
-                iCategoriesService.Update(categoryInfo);
-                Response.Redirect("CategoriesCtrl.aspx");
+                if (_id > 0) //Update
+                {
+                    categoryInfo.ID = _id;
+                    categoryInfo.Name = tbName.Text.Trim();
+                    categoryInfo.Description = tbDes.Text.Trim();
+                    iCategoriesService.Update(categoryInfo);
+                    Response.Redirect("CategoriesCtrl.aspx");
+                }
+                else //Save
+                {
+                    categoryInfo.Name = tbName.Text.Trim();
+                    categoryInfo.Description = tbDes.Text.Trim();
+                    iCategoriesService.Insert(categoryInfo);
+                    Response.Redirect("CategoriesCtrl.aspx");
+                
+                }
+            }
+            catch (System.Threading.ThreadAbortException)
+            {
+
             }
             catch (Exception) 
             {
@@ -117,6 +132,10 @@ namespace ThietKeSoUI.admincp
                 int.TryParse(hdDelID.Value, out id);
                 iCategoriesService.Delete(id);
                 Response.Redirect("CategoriesCtrl.aspx");
+            }
+            catch (System.Threading.ThreadAbortException)
+            {
+
             }
             catch (Exception) 
             {
