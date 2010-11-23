@@ -30,26 +30,6 @@ namespace ThietKeSoUI.admincp
                 Response.Redirect("Default.aspx");
             }
         }
-
-        protected void btnLogin_Click(object sender, EventArgs e)
-        {
-            string passMd5 = EncodePassword(tbPassword.Text);
-            string user = tbUserName.Text;
-            
-            UsersInfo usersInfo = iUserSevice.SelectByUserName(user);
-            if (passMd5.Trim().Equals(usersInfo.Password.Trim()))
-            {
-                Session["UserAuthenticated"] = 1;
-                Session["User"] = user;
-                Session["UserID"] = usersInfo.ID;
-                Response.Redirect("Default.aspx");
-            }
-        }
-
-        protected void btnCancel_Click(object sender, EventArgs e)
-        {
-
-        }
         /// <summary>
         /// Encode Passwork
         /// </summary>
@@ -69,6 +49,21 @@ namespace ThietKeSoUI.admincp
 
             //Convert encoded bytes back to a 'readable' string
             return BitConverter.ToString(encodedBytes);
+        }
+
+        protected void Login1_Authenticate(object sender, AuthenticateEventArgs e)
+        {
+            string passMd5 = EncodePassword(Login1.Password);
+            string user = Login1.UserName;
+
+            UsersInfo usersInfo = iUserSevice.SelectByUserName(user);
+            if (passMd5.Trim().Equals(usersInfo.Password.Trim()))
+            {
+                Session["UserAuthenticated"] = 1;
+                Session["User"] = user;
+                Session["UserID"] = usersInfo.ID;
+                Response.Redirect("Default.aspx");
+            }
         }
     }
 }
