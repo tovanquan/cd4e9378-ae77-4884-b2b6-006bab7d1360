@@ -28,8 +28,7 @@ namespace ThietKeSoUI.admincp
     {
         #region Properies
 
-        const String sVirtualPath = "/images/";
-        const String sOverlayText = ".NET Rules!!";
+        const String sVirtualPath = "/images/articles";
         const int iMaxWidth = 550;
         const int iMaxThumbWidth = 75;
         String sPath = HttpContext.Current.Server.MapPath(sVirtualPath);
@@ -74,7 +73,6 @@ namespace ThietKeSoUI.admincp
                     {
                         btnSave.Text = "Update";
                         checkUpload.Visible = true;
-                        uploadedFile.Enabled = false;
                         GetNewData(newID);
                     }
                 }
@@ -225,24 +223,6 @@ namespace ThietKeSoUI.admincp
 
             }
 
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void checkUpload_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkUpload.Checked)
-            {
-                uploadedFile.Enabled = true;
-            }
-            else
-            {
-                uploadedFile.Enabled = false;
-
-            }
         }
         #endregion
 

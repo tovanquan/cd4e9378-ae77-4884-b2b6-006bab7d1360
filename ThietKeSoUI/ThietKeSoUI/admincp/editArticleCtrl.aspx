@@ -62,8 +62,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <asp:CheckBox ID="checkUpload" runat="server" AutoPostBack="True" 
-                                oncheckedchanged="checkUpload_CheckedChanged" Text="Change image" />
+                            <asp:CheckBox ID="checkUpload" runat="server" Text="Change image" />
                             <asp:FileUpload ID="uploadedFile" runat="server" />
                         </td>
                     </tr>
@@ -148,7 +147,7 @@
 </asp:Content>
 <asp:Content ID="cActiveMenuJs" ContentPlaceHolderID="cphActiveMenuJs" runat="server">
 
-    <script language="javascript" type="text/javascript">
+<script language="javascript" type="text/javascript">
         var liMenu = document.getElementById('liArt');
         liMenu.className = 'active';
     </script>
