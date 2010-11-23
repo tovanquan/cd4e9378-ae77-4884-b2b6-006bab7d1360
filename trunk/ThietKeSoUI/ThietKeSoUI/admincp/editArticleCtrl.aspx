@@ -48,7 +48,7 @@
         <a href="Default.aspx">Home</a> » <a class="active" href="ArticleCtrl.aspx">
             Article</a></h2>
     <h3>
-        Quản Lý Article</h3>
+        Edit Article</h3>
     <table style="width: 100%;">
         <tr>
             <td class="style11">
