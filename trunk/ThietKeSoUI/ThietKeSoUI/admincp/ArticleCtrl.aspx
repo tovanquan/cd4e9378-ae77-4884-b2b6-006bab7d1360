@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphMainContent" runat="server">
+
     <script language="javascript" type="text/javascript">
         function RedirectEditArticlePage(_id) {
             window.location = 'editArticleCtrl.aspx?ID=' + _id;
@@ -10,7 +11,6 @@
         
         function doPostBackDelete(_id) {
 
-            var lbtnDelete = document.getElementById('<%=lbtnDelete.ClientID %>');
             if (confirm("Do you want to delete this record?")) {
                 var hdDelID = document.getElementById('<%=hdEditID.ClientID %>');
                 hdDelID.value = _id;
@@ -23,7 +23,7 @@
     
     <h2 style="margin-bottom:5px"> <a href="Default.aspx">Home</a> » <a href="ArticleCtrl.aspx" class="active">
         Tin Tức</a></h2>
-    <h3>Quản Lý Articles</h3>
+   <h3>Ariticle Manager >> <a href="editArticleCtrl.aspx" >Add New</a></h3>
     <table cellpadding="0" cellspacing="0" border=1>
 			    <tr style="background-color:black">
                     <td><b>Title</b></td>
@@ -43,12 +43,11 @@
      </div>
       <asp:LinkButton ID="lbtnDelete" runat="server" Text="" OnClick="btn_Delete" 
         PostBackUrl="~/Article.aspx"/>
-     <div> <asp:Button ID="btnAddNew" runat="server" onclick="btnAddNew_Click" 
-        Text="Add new" /></div>
   
             
 </asp:Content>
 <asp:Content ID="cActiveMenuJs" ContentPlaceHolderID="cphActiveMenuJs" runat="server">
+
     <script language="javascript" type="text/javascript">
         var liMenu = document.getElementById('liArt');
         liMenu.className = 'active';

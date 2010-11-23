@@ -62,16 +62,7 @@ namespace ThietKeSoUI.admincp
             int.TryParse(hdEditID.Value.Trim(), out _id);
             iArticlesService.Delete(_id);
             
-        }
-
-        protected void btnAddNew_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("editArticleCtrl.aspx");
-        }
-
-       
+        }     
       
-
-        
     }
 }
