@@ -10,11 +10,11 @@
         
         function doPostBackDelete(_id) {
 
-            if (confirm('Do you want to delete the record?'))
-             {
-                var hdDelID = document.getElementById('<%=hdEditID.ClientID%>');
-                hdEditID.value = idDelete;
-
+            var lbtnDelete = document.getElementById('<%=lbtnDelete.ClientID %>');
+            if (confirm("Do you want to delete this record?")) {
+                var hdDelID = document.getElementById('<%=hdEditID.ClientID %>');
+                hdDelID.value = _id;
+                __doPostBack('ctl00_cphMainContent_lbtnDelete', '');
             }
            
               
@@ -39,10 +39,11 @@
             
     
      <div id="SomeHidden" style="display:none">
-     <asp:HiddenField ID="hdEditID" runat="server" Value="0" />                
-         <asp:Button ID="btnDelete" runat="server" OnClick="btn_Delete"/>
+     <asp:HiddenField ID="hdEditID" runat="server" Value="0" />                        
      </div>
-     <div>    <asp:Button ID="btnAddNew" runat="server" onclick="btnAddNew_Click" 
+      <asp:LinkButton ID="lbtnDelete" runat="server" Text="" OnClick="btn_Delete" 
+        PostBackUrl="~/Article.aspx"/>
+     <div> <asp:Button ID="btnAddNew" runat="server" onclick="btnAddNew_Click" 
         Text="Add new" /></div>
   
             
