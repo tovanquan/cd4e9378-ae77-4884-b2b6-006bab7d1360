@@ -23,15 +23,6 @@ namespace ThietKeSoUI.admincp {
         protected global::System.Web.UI.WebControls.Label lbTableArticles;
         
         /// <summary>
-        /// btnAddNew control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddNew;
-        
-        /// <summary>
         /// hdEditID control.
         /// </summary>
         /// <remarks>
@@ -41,12 +32,21 @@ namespace ThietKeSoUI.admincp {
         protected global::System.Web.UI.WebControls.HiddenField hdEditID;
         
         /// <summary>
-        /// btnDelete control.
+        /// lbtnDelete control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDelete;
+        protected global::System.Web.UI.WebControls.LinkButton lbtnDelete;
+        
+        /// <summary>
+        /// btnAddNew control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddNew;
     }
 }
