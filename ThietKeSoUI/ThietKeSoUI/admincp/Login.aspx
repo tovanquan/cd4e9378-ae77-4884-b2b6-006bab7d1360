@@ -11,24 +11,9 @@
     <div  style="text-align:left; vertical-align:top;padding-top:20px;">
         Quản Trị Nội Dung | ThietKeSo JSC
         <br /><br />
-        <table>
-                <tr>
-                    <td>UserName:</td>
-                    <td><asp:TextBox ID="tbUserName" runat="server" ></asp:TextBox></td>
-                </tr>
-                <tr>
-                    <td>Password:</td>
-                    <td><asp:TextBox ID="tbPassword" TextMode="Password" runat="server" ></asp:TextBox></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><asp:Button ID="btnLogin" runat="server" Text="Login" 
-                            onclick="btnLogin_Click" />
-                        <asp:Button ID="btnCancel" runat="server" Text="Cancel" 
-                            onclick="btnCancel_Click" />
-                    </td>
-                </tr>
-            </table>
+         <asp:Login ID="Login1" runat="server" onauthenticate="Login1_Authenticate" 
+                            TitleText="">
+                        </asp:Login>
     </div>
     </form>
 </body>
