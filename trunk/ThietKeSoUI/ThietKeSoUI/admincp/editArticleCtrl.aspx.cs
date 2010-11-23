@@ -28,7 +28,7 @@ namespace ThietKeSoUI.admincp
     {
         #region Properies
 
-        const String sVirtualPath = "/images/articles";
+        const String sVirtualPath = "/images/articles/";
         const int iMaxWidth = 550;
         const int iMaxThumbWidth = 75;
         String sPath = HttpContext.Current.Server.MapPath(sVirtualPath);
