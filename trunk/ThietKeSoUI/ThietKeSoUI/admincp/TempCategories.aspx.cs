@@ -17,6 +17,9 @@ namespace ThietKeSoUI.admincp
         protected void Page_Load(object sender, EventArgs e)
         {
             CreateTableTemplateCategories();
+            btnAddnew.Attributes.Add("onclick", "return ShowAddPanel()");
+            btnCancel.Attributes.Add("onclick", "return HideAddPanel()");
+            
         }
 
         protected void CreateTableTemplateCategories()
@@ -49,6 +52,23 @@ namespace ThietKeSoUI.admincp
             //supporterInfo.Mail = tbMail.Text.Trim();
             //supporterInfo.Mobile = tbMobile.Text.Trim();
             //iSupporterService.Update(supporterInfo);
+        }
+
+        /// <summary>
+        /// Event Button Add Click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            Label1.Text = "x";
+            //SupporterInfo supporterInfo = new SupporterInfo();
+            //supporterInfo.Name = tbName2.Text.Trim();
+            //supporterInfo.Mail = tbMail2.Text.Trim();
+            //supporterInfo.Mobile = tbMobile2.Text.Trim();
+            //supporterInfo.Skype = tbSkype2.Text.Trim();
+            //supporterInfo.Yahoo = tbYahoo2.Text.Trim();
+            //iSupporterService.Insert(supporterInfo);
         }
     }
 }

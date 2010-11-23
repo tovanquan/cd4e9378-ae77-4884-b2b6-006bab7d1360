@@ -4,16 +4,16 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using System.Windows.Forms;
 namespace ThietKeSoUI
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+        public void Page_Load(object sender, EventArgs e)
         {
             btnHide.Attributes.Add("onclick", "return hideButton()");
             btnShow.Attributes.Add("onclick", "return ShowButton()");
-            //WebForm1.Document.InvokeScript("example_function", args);  
+            //Webform1.DomDocument.InvokeScript("example_function", args);  
         }
     }
 }
