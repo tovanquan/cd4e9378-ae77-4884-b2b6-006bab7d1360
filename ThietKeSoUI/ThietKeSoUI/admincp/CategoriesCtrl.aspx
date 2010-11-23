@@ -2,6 +2,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphMainContent" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+  
  <script language="javascript" type="text/javascript">
      function DisplayEditPanel(_name,_des, _id) {
          document.getElementById('panelEdit').style.display = 'block';
@@ -53,7 +56,12 @@
     	        <fieldset>
         	        <p><label>Name:</label><asp:TextBox ID="tbName" runat="server" CssClass="text-long" ></asp:TextBox></p>
         	        <p><label>Description:</label><asp:TextBox ID="tbDes" runat="server" TextMode="MultiLine" ></asp:TextBox></p>
-        	        <asp:Button ID="btnEdit" runat="server" Text="Update"  OnClick="btnEdit_Click" />
+           	          <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+    <ContentTemplate>
+        <asp:Label ID="message" ForeColor ="Red" runat="server" Text=""></asp:Label>
+    </ContentTemplate>
+    </asp:UpdatePanel>
+           	        <asp:Button ID="btnEdit" runat="server" Text="Update"  OnClick="btnEdit_Click" />
                 </fieldset>                 
            </div>           
              <asp:LinkButton ID="lbtnDelete" runat="server" Text="" OnClick="lbtnDelete_Click" ></asp:LinkButton>

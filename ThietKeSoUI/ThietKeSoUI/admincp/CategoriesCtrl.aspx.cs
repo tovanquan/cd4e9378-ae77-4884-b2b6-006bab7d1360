@@ -77,7 +77,11 @@ namespace ThietKeSoUI.admincp
         protected void Page_Load(object sender, EventArgs e)
         {
             //Creeate categories table
-            BuildTableCategoriesView();
+            if (!IsPostBack)
+            {
+                ScriptManager1.RegisterAsyncPostBackControl(btnEdit);
+                BuildTableCategoriesView();
+            }
         }
 
         /// <summary>
@@ -89,6 +93,11 @@ namespace ThietKeSoUI.admincp
         {
             try
             {
+                if (string.IsNullOrEmpty(tbName.Text.Trim()) || string.IsNullOrEmpty(tbDes.Text.Trim())) 
+                {
+                    message.Text = "Something is not inputed";
+                    return;
+                }
                 CategoriesInfo categoryInfo = new CategoriesInfo();
                 int _id = 0;
                 int.TryParse(hdEditID.Value.Trim(), out _id);
