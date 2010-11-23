@@ -25,9 +25,10 @@ namespace ThietKeSoUI.admincp
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["UserAuthenticated"].ToString() == "1")
+            if (Session["UserAuthenticated"] != null)
             {
-                Response.Redirect("Default.aspx");
+                if (Session["UserAuthenticated"].ToString() == "1")
+                    Response.Redirect("Default.aspx");
             }
         }
         /// <summary>
@@ -57,12 +58,24 @@ namespace ThietKeSoUI.admincp
             string user = Login1.UserName;
 
             UsersInfo usersInfo = iUserSevice.SelectByUserName(user);
-            if (passMd5.Trim().Equals(usersInfo.Password.Trim()))
+            if (usersInfo!=null)
             {
-                Session["UserAuthenticated"] = 1;
-                Session["User"] = user;
-                Session["UserID"] = usersInfo.ID;
-                Response.Redirect("Default.aspx");
+                if (usersInfo.Password == passMd5)
+                {
+                    Session["UserAuthenticated"] = 1;
+                    Session["User"] = user;
+                    Session["UserID"] = usersInfo.ID;
+                    e.Authenticated = true;
+                }
+                else 
+                {
+                    e.Authenticated = false;
+                }
+
+            }
+            else 
+            {
+                e.Authenticated = false;
             }
         }
     }
