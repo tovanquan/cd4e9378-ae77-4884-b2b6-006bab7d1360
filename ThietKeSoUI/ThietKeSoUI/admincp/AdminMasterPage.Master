@@ -28,7 +28,8 @@
         <ul id="mainNav">
         	<li><a href="Default.aspx" class="active">ADMIN CONTROL PANEL</a></li> <!-- Use the "active" class for the active menu item  -->
         	<li><a href="../Default.aspx">MAIN PAGE</a></li>
-        	<li class="logout"><a href="#">LOGOUT</a></li>
+        	<li class="logout">
+                <asp:LinkButton ID="lbtnLogout" runat="server" onclick="lbtnLogout_Click">LOGOUT</asp:LinkButton></li>
         </ul>
         <!-- // #end mainNav -->
         <div id="containerHolder">

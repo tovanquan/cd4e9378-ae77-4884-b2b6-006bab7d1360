@@ -17,13 +17,20 @@ namespace ThietKeSoUI.admincp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["UserAuthenticated"].ToString() == "0")
+            if (Session["UserAuthenticated"] == null)
             {
                 Response.Redirect("Login.aspx");
             }
             else
             {
             }
+        }
+
+        protected void lbtnLogout_Click(object sender, EventArgs e)
+        {
+            Session["UserAuthenticated"] = null;
+            Session["User"] = null;
+            Session["UserID"] = null;
         }
     }
 }
