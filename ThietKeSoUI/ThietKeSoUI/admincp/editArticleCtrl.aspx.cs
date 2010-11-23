@@ -20,6 +20,7 @@ using System.IO;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Text.RegularExpressions;
+using System.Web.Configuration;
 
 
 namespace ThietKeSoUI.admincp
@@ -28,10 +29,9 @@ namespace ThietKeSoUI.admincp
     {
         #region Properies
 
-        const String sVirtualPath = "/images/articles/";
-        const int iMaxWidth = 550;
-        const int iMaxThumbWidth = 75;
-        String sPath = HttpContext.Current.Server.MapPath(sVirtualPath);
+        static String sVirtualPath = string.Empty;
+        static int iMaxWidth;
+        static String sPath = string.Empty;
 
         /// <summary>
         /// Articles Service
@@ -42,7 +42,7 @@ namespace ThietKeSoUI.admincp
         /// Categories service
         /// </summary>
         private ICategoriesService iCategoryService = new thietkeso.Biz.Implements.CategoriesService();
-        #endregion 
+        #endregion
 
         #region Private method
         /// <summary>
@@ -52,6 +52,9 @@ namespace ThietKeSoUI.admincp
         {
             try
             {
+                //read custom web config
+                ReadConfig();
+
                 //them su kien javascript cho button save
                 btnSave.Attributes.Add("onclick", "javascript: SetHiddenFieldValue();");
 
@@ -76,7 +79,7 @@ namespace ThietKeSoUI.admincp
                         GetNewData(newID);
                     }
                 }
-                else 
+                else
                 {
                     checkUpload.Visible = false;
                     image.Visible = false;
@@ -87,6 +90,17 @@ namespace ThietKeSoUI.admincp
             {
                 Response.Redirect("Error.aspx");
             }
+        }
+
+        private void ReadConfig()
+        {
+
+            Configuration rootWebConfig = WebConfigurationManager.OpenWebConfiguration("~\\Web.config");
+            KeyValueConfigurationElement customSettingVPath = rootWebConfig.AppSettings.Settings["ArticleImageVitualPath"];
+            KeyValueConfigurationElement customSettingMaxWidth = rootWebConfig.AppSettings.Settings["MaxWidthImage"];
+            sVirtualPath = customSettingVPath.Value;
+            int.TryParse(customSettingMaxWidth.Value, out iMaxWidth);
+            sPath = HttpContext.Current.Server.MapPath(sVirtualPath);
         }
 
         /// <summary>
@@ -102,11 +116,11 @@ namespace ThietKeSoUI.admincp
                 tbxSummary.Text = newData.Summary;
                 cboCategory.SelectedValue = newData.CategoryID + "";
                 tbxContent.Value = newData.Contents;
-                image.ImageUrl = newData.Image;                
+                image.ImageUrl = newData.Image;
             }
         }
         #endregion
-        
+
         #region Event handle
 
         /// <summary>
@@ -156,7 +170,7 @@ namespace ThietKeSoUI.admincp
                     {
                         if (uploadedFile.PostedFile != null)
                         {
-                            string [] temp = dataInfo.Image.Split('/');
+                            string[] temp = dataInfo.Image.Split('/');
                             string imageFile = temp.Last();
                             myPath = Process_Upload(imageFile);
                             if (myPath != null)
@@ -175,7 +189,7 @@ namespace ThietKeSoUI.admincp
                         }
                         else { message.Text = "please choose an image file!"; }
                     }
-                    else 
+                    else
                     {
                         dataInfo.Author = Session["User"].ToString();
                         dataInfo.CategoryID = int.Parse(cboCategory.SelectedValue);
@@ -207,15 +221,15 @@ namespace ThietKeSoUI.admincp
                             Response.Redirect("ArticleCtrl.aspx");
                         }
                     }
-                    else 
+                    else
                     {
                         message.Text = "please choose an image file!";
                     }
                 }
             }
-            catch (System.Threading.ThreadAbortException) 
+            catch (System.Threading.ThreadAbortException)
             {
-            
+
             }
             catch (Exception ex)
             {
@@ -236,7 +250,7 @@ namespace ThietKeSoUI.admincp
         string Process_Upload(string fileName)
         {
             try
-            {                
+            {
                 //Check for common errors.
                 if (!Check_Upload(uploadedFile.PostedFile)) return null;
 
@@ -249,10 +263,10 @@ namespace ThietKeSoUI.admincp
                 {
                     myName = Guid.NewGuid().ToString();
                 }
-  
+
                 //Running main image processing routine
-               string mypath = Process_Image(myUpload.InputStream, Path.ChangeExtension(myName, ".jpg"));
-               return mypath;
+                string mypath = Process_Image(myUpload.InputStream, Path.ChangeExtension(myName, ".jpg"));
+                return mypath;
             }
             catch (Exception)
             {
@@ -298,7 +312,7 @@ namespace ThietKeSoUI.admincp
 
             //Cleaning up parent image object
             myImage.Dispose();
-            return Path.Combine(sVirtualPath,myName);
+            return Path.Combine(sVirtualPath, myName);
         }
 
         /// <summary>
@@ -331,7 +345,7 @@ namespace ThietKeSoUI.admincp
         }
         #endregion
 
-       
+
 
 
     }
