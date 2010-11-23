@@ -231,7 +231,7 @@ namespace ThietKeSoUI.admincp
             {
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Response.Redirect("Error.aspx");
 
