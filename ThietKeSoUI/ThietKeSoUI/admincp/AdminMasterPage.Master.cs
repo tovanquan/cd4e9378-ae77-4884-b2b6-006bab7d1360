@@ -30,9 +30,11 @@ namespace ThietKeSoUI.admincp
 
         protected void lbtnLogout_Click(object sender, EventArgs e)
         {
-            Session["UserAuthenticated"] = 1;
+            Session["UserAuthenticated"] = 0;
             Session["User"] = null;
             Session["UserID"] = null;
+            Response.Redirect("Login.aspx");
+
         }
     }
 }
