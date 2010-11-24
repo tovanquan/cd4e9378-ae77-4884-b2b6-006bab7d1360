@@ -40,7 +40,6 @@ namespace ThietKeSoUI.admincp
 
                 //Select all data from table
                 lstCategoryInfo = iCategoriesService.SelectAll();
-
                 //String html to display
                 StringBuilder strCategory = new StringBuilder();
                 if (lstCategoryInfo != null && lstCategoryInfo.Count() > 0)
