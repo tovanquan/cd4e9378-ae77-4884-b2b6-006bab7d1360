@@ -62,7 +62,6 @@
                     </tr>
                     <tr>
                         <td>
-                            <asp:CheckBox ID="checkUpload" runat="server" Text="Change image" />
                             <asp:FileUpload ID="uploadedFile" runat="server" />
                         </td>
                     </tr>

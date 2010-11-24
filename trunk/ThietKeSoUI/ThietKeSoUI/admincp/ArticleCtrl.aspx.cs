@@ -20,6 +20,7 @@ using thietkeso.Biz;
 using thietkeso.Biz.Services;
 using thietkeso.Common.Models;
 using System.Text;
+using System.IO;
 namespace ThietKeSoUI.admincp
 {
     public partial class ArticleCtrl : System.Web.UI.Page
@@ -60,6 +61,7 @@ namespace ThietKeSoUI.admincp
         {
             int _id = 0;
             int.TryParse(hdEditID.Value.Trim(), out _id);
+            File.Delete(Server.MapPath(iArticlesService.Select(_id).Image));
             iArticlesService.Delete(_id);
             
         }     
