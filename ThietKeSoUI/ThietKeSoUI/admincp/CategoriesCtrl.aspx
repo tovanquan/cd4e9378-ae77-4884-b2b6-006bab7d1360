@@ -2,9 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphMainContent" runat="server">
-    <asp:ScriptManager ID="ScriptManager1" runat="server">
-    </asp:ScriptManager>
-  
+    
  <script language="javascript" type="text/javascript">
      function DisplayEditPanel(_name,_des, _id) {
          document.getElementById('panelEdit').style.display = 'block';
@@ -16,7 +14,7 @@
          var btnEdit = document.getElementById('<%=btnEdit.ClientID %>');
          btnEdit.value = 'Update';
      }
-     function DeleteSupporter(idDelete) {
+     function DeleteCategory(idDelete) {
          var lbtnDelete = document.getElementById('<%=lbtnDelete.ClientID %>');
          if (confirm("Do you want to delete thi record?")) {
              var hdDelID = document.getElementById('<%=hdDelID.ClientID %>');
@@ -28,12 +26,21 @@
          document.getElementById('panelEdit').style.display = 'block';
          var name = document.getElementById('<%=tbName.ClientID %>');
          name.value = '';
-         var yahoo = document.getElementById('<%=tbDes.ClientID %>');
-         yahoo.value = '';
+         var des = document.getElementById('<%=tbDes.ClientID %>');
+         des.value = '';
          var btnEdit = document.getElementById('<%=btnEdit.ClientID %>');
          btnEdit.value = 'Save';
          document.getElementById('<%=hdEditID.ClientID %>').value = '0';
      }
+     function CheckInput() {
+         var name = document.getElementById('<%=tbName.ClientID %>').value;
+         var des = document.getElementById('<%=tbDes.ClientID %>').value;
+         if (name.replace(/^\s+|\s+$/g, '') == '' || des.replace(/^\s+|\s+$/g, '') == '') {
+             alert('Điền đầy đủ thông tin đi cụ!');
+             return false;
+         }
+         return true;
+      }
     </script>
 
     <h2 style="margin-bottom:5px">
@@ -56,12 +63,8 @@
     	        <fieldset>
         	        <p><label>Name:</label><asp:TextBox ID="tbName" runat="server" CssClass="text-long" ></asp:TextBox></p>
         	        <p><label>Description:</label><asp:TextBox ID="tbDes" runat="server" TextMode="MultiLine" ></asp:TextBox></p>
-           	          <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-    <ContentTemplate>
-        <asp:Label ID="message" ForeColor ="Red" runat="server" Text=""></asp:Label>
-    </ContentTemplate>
-    </asp:UpdatePanel>
-           	        <asp:Button ID="btnEdit" runat="server" Text="Update"  OnClick="btnEdit_Click" />
+           	          
+           	        <asp:Button ID="btnEdit" runat="server" Text="Update" OnClientClick="return CheckInput();"  OnClick="btnEdit_Click" />
                 </fieldset>                 
            </div>           
              <asp:LinkButton ID="lbtnDelete" runat="server" Text="" OnClick="lbtnDelete_Click" ></asp:LinkButton>

@@ -75,13 +75,11 @@ namespace ThietKeSoUI.admincp
                     else
                     {
                         btnSave.Text = "Update";
-                        checkUpload.Visible = true;
                         GetNewData(newID);
                     }
                 }
                 else
                 {
-                    checkUpload.Visible = false;
                     image.Visible = false;
                 }
 
@@ -166,7 +164,7 @@ namespace ThietKeSoUI.admincp
                     string myPath = string.Empty;
                     int newID = int.Parse(Request["ID"]);
                     ArticlesInfo dataInfo = iArticlesService.Select(newID);
-                    if (checkUpload.Checked)
+                    if (!string.IsNullOrEmpty(uploadedFile.FileName))
                     {
                         if (uploadedFile.PostedFile != null)
                         {
@@ -187,7 +185,6 @@ namespace ThietKeSoUI.admincp
                                 Response.Redirect("ArticleCtrl.aspx");
                             }
                         }
-                        else { message.Text = "please choose an image file!"; }
                     }
                     else
                     {

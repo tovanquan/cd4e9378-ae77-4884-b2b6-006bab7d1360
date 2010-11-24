@@ -14,7 +14,7 @@
             if (confirm("Do you want to delete this record?")) {
                 var hdDelID = document.getElementById('<%=hdEditID.ClientID %>');
                 hdDelID.value = _id;
-                __doPostBack('ctl00_cphMainContent_lbtnDelete', '');
+                __doPostBack('ctl00$cphMainContent$lbtnDelete', '');
             }
            
               
