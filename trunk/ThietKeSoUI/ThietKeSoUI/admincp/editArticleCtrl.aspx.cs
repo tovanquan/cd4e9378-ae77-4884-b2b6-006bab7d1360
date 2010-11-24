@@ -55,9 +55,6 @@ namespace ThietKeSoUI.admincp
                 //read custom web config
                 ReadConfig();
 
-                //them su kien javascript cho button save
-                btnSave.Attributes.Add("onclick", "javascript: SetHiddenFieldValue();");
-
                 //Get newID
                 string strID = Request["ID"];
 
@@ -152,11 +149,7 @@ namespace ThietKeSoUI.admincp
         /// <param name="e"></param>
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(tbxTitle.Text.Trim()) || string.IsNullOrEmpty(tbxSummary.Text.Trim()) || string.IsNullOrEmpty(contentValue.Value.Trim()))
-            {
-                message.Text = "Something not inputed";
-                return;
-            }
+
             try
             {
                 if (!string.IsNullOrEmpty(Request["ID"]))//Update
@@ -217,10 +210,6 @@ namespace ThietKeSoUI.admincp
                             iArticlesService.Insert(dataInfo);
                             Response.Redirect("ArticleCtrl.aspx");
                         }
-                    }
-                    else
-                    {
-                        message.Text = "please choose an image file!";
                     }
                 }
             }
@@ -322,24 +311,26 @@ namespace ThietKeSoUI.admincp
             //Checking to see if field was left empty
             if (fileUpped.FileName == "")
             {
-                message.Text = "Upload Failed: No image sbumitted";
+                
+                Common.Alert.Show("Upload Failed: No image sbumitted");
                 return false;
             }
             //Checking for Jpeg / Gif mime types
             if (!Regex.IsMatch(fileUpped.ContentType, "image/(?:\\w?jpeg|gif|png)", RegexOptions.IgnoreCase))
             {
-                message.Text = "Upload Failed: Only JPG's and GIF's allowed";
-                return false;
+                Common.Alert.Show("Upload Failed: Only JPG's and GIF's allowed");
+                 return false;
             }
             //Checking for zero length.  You could also use to check for large files.
             if (fileUpped.ContentLength == 0)
             {
-                message.Text = "Upload Failed: File cannot be zero bytes.";
+                Common.Alert.Show("Upload Failed: File cannot be zero bytes.");
                 return false;
             }
 
             return true;
         }
+
         #endregion
 
 

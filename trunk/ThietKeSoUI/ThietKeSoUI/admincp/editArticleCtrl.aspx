@@ -41,6 +41,28 @@
             contentValue.value = editor.getData();
 
         }
+        
+     function CheckInput() {
+         SetHiddenFieldValue();
+         var title = document.getElementById('<%=tbxTitle.ClientID %>').value;
+         var summary = document.getElementById('<%=tbxSummary.ClientID %>').value;         
+         var content = document.getElementById('<%=contentValue.ClientID %>').value;      
+         var uploadFile = document.getElementById('<%=uploadedFile.ClientID %>').value;
+         var btnSave = document.getElementById('<%=btnSave.ClientID %>').value;
+         if(btnSave == 'Save')
+         {
+            if(uploadFile =='')
+                    {
+                    alert('Hay chon file anh!');
+                    return false;
+                    }
+         }
+         if (title.replace(/^\s+|\s+$/g, '') == '' || summary.replace(/^\s+|\s+$/g, '') == ''|| content.replace(/^\s+|\s+$/g, '') == '') {
+             alert('Điền đầy đủ thông tin đi cụ!');
+             return false;
+         }
+         return true;
+      }
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphMainContent" runat="server">
@@ -134,7 +156,7 @@
             <td class="style13">
                 &nbsp;</td>
             <td class="style3">
-                <asp:Button ID="btnSave" runat="server" Text="Save" onclick="btnSave_Click" />
+                <asp:Button ID="btnSave" runat="server" Text="Save"  OnClientClick="return CheckInput();" onclick="btnSave_Click" />
                 <asp:Button ID="btnCancel" runat="server" Text="Cancel" 
                     onclick="btnCancel_Click" />
             </td>
