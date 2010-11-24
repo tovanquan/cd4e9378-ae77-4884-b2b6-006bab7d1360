@@ -132,7 +132,7 @@ namespace ThietKeSoUI.admincp
                 int id = 0;
                 int.TryParse(hdDelID.Value, out id);
                 iCategoriesService.Delete(id);
-                Response.Redirect("CategoriesCtrl.aspx");
+                BuildTableCategoriesView();
             }
             catch (System.Threading.ThreadAbortException)
             {
