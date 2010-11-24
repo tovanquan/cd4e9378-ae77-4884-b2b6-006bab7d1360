@@ -32,7 +32,10 @@ namespace ThietKeSoUI.admincp
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            BuildTableArticleView();
+            if (!IsPostBack)
+            {
+                BuildTableArticleView();
+            }
 
         }
 
@@ -59,10 +62,17 @@ namespace ThietKeSoUI.admincp
 
         protected void btn_Delete(object sender, EventArgs e)
         {
-            int _id = 0;
-            int.TryParse(hdEditID.Value.Trim(), out _id);
-            File.Delete(Server.MapPath(iArticlesService.Select(_id).Image));
-            iArticlesService.Delete(_id);
+            try
+            {
+                int _id = 0;
+                int.TryParse(hdEditID.Value.Trim(), out _id);
+                File.Delete(Server.MapPath(iArticlesService.Select(_id).Image));
+                iArticlesService.Delete(_id);
+            }
+            catch (Exception) 
+            {
+              
+            }
             
         }     
       
