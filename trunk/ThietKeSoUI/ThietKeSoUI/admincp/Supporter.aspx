@@ -32,12 +32,13 @@
         function ShowAddPanel() {
             document.getElementById('panelAdd').style.display = 'block';
             HideEditPanel();
+            return false;
         }
         
     </script>
 
     <h2 style="margin-bottom:5px"> <a href="Default.aspx">Home</a> &raquo; <a href="Supporter.aspx" class="active">Supporter</a></h2>    
-    <h3>Manage Supporter >> <a href="javascript:ShowAddPanel();" > Add New</a></h3>
+    <h3>Manage Supporter</h3>
             
             
     	    <table cellpadding="0" cellspacing="0" border=1>
@@ -51,7 +52,10 @@
                 </tr>  
                 <asp:Label ID="lbTableSupporter" runat="server"></asp:Label>                                   
             </table>
-		    <br />
+            
+            <div align = "center" valign = "middle" >
+                <asp:Button ID="btnAddnew" runat="server" Text="Addnew"/>
+            </div>
 		    
 		    <div id="panelEdit" style="display:none">
 		    <h3>Edit Supporter</h3>
