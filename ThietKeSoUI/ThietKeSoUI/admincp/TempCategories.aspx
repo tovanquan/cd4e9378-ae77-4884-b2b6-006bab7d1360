@@ -66,6 +66,8 @@
          function CheckConditionOfAddNew() {
              var name = document.getElementById('<%= tbAddName.ClientID %>').value;
              var desc = document.getElementById('<%= tbAddDes.ClientID %>').value;
+             name = name.replace(/^\s+|\s+$/g, "");
+             desc = desc.replace(/^\s+|\s+$/g, "");
              if (name == null || name == '' || desc == null || desc == '') {
                  alert('Hãy điền đầy đủ thông tin !');
                  return false;
