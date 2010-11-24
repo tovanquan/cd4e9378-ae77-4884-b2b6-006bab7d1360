@@ -68,6 +68,8 @@ namespace ThietKeSoUI.admincp
                 int.TryParse(hdEditID.Value.Trim(), out _id);
                 File.Delete(Server.MapPath(iArticlesService.Select(_id).Image));
                 iArticlesService.Delete(_id);
+                BuildTableArticleView();            
+              
             }
             catch (Exception) 
             {
