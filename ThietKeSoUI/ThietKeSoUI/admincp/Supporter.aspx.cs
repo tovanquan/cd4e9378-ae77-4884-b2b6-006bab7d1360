@@ -24,6 +24,7 @@ namespace ThietKeSoUI.admincp
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            btnAddnew.Attributes.Add("onclick", "return ShowAddPanel()");
             BuildTableSupporterView();
         }
         protected void BuildTableSupporterView()

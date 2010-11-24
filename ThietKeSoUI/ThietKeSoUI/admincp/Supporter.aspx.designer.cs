@@ -23,6 +23,15 @@ namespace ThietKeSoUI.admincp {
         protected global::System.Web.UI.WebControls.Label lbTableSupporter;
         
         /// <summary>
+        /// btnAddnew control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddnew;
+        
+        /// <summary>
         /// tbName control.
         /// </summary>
         /// <remarks>
